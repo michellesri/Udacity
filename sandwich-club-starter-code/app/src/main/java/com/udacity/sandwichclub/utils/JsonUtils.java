@@ -31,8 +31,6 @@ public class JsonUtils {
             ingredientsList.add(ingredients.getString(i));
         }
 
-        System.out.println("salkad");
-        System.out.println("salkad");
         return new Sandwich(mainName, alsoKnownAsList, placeOfOrigin,
                 description, image, ingredientsList);
 
