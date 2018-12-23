@@ -157,10 +157,10 @@ public class MainActivity extends AppCompatActivity {
 
     // TODO (3) Override onSaveInstanceState to persist data across Activity recreation
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-    }
+//    @Override
+//    protected void onSaveInstanceState(Bundle outState) {
+//        super.onSaveInstanceState(outState);
+//    }
 
     // Do the following steps within onSaveInstanceState
     // TODO (4) Make sure super.onSaveInstanceState is called before doing anything else
