@@ -42,6 +42,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
     @Override
     public void onCreatePreferences(Bundle bundle, String s) {
         /* Add 'general' preferences, defined in the XML file */
+
         addPreferencesFromResource(R.xml.pref_general);
 
         SharedPreferences sharedPreferences = getPreferenceScreen().getSharedPreferences();

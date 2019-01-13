@@ -17,6 +17,7 @@ package com.example.android.sunshine.data;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.preference.CheckBoxPreference;
 import android.preference.PreferenceManager;
 
 import com.example.android.sunshine.R;
@@ -211,5 +212,11 @@ public final class SunshinePreferences {
         String lastNotificationKey = context.getString(R.string.pref_last_notification);
         editor.putLong(lastNotificationKey, timeOfNotification);
         editor.apply();
+    }
+
+    public static boolean areNotificationsEnabled(Context context) {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+        return sp.getBoolean(context.getString(R.string.pref_enable_notifications_key), false);
+
     }
 }

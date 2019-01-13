@@ -77,8 +77,8 @@ public class AddTaskActivity extends AppCompatActivity {
                 // populate the UI
                 mTaskId = intent.getIntExtra(EXTRA_TASK_ID, DEFAULT_TASK_ID);
 
-                Log.d(TAG, "Actively retrieving a specific task from the DataBase");
-                final LiveData<TaskEntry> task = mDb.taskDao().loadTaskById(mTaskId);
+                AddTaskViewModelFactory factory = new AddTaskViewModelFactory(mDb, mTaskId);
+
                 task.observe(this, new Observer<TaskEntry>() {
                     @Override
                     public void onChanged(@Nullable TaskEntry taskEntry) {

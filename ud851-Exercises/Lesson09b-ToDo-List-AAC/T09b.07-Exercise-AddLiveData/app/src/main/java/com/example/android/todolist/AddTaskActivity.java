@@ -16,8 +16,11 @@
 
 package com.example.android.todolist;
 
+import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.Observer;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -72,18 +75,13 @@ public class AddTaskActivity extends AppCompatActivity {
             if (mTaskId == DEFAULT_TASK_ID) {
                 // populate the UI
                 mTaskId = intent.getIntExtra(EXTRA_TASK_ID, DEFAULT_TASK_ID);
-                AppExecutors.getInstance().diskIO().execute(new Runnable() {
+                final LiveData<TaskEntry> task = mDb.taskDao().loadTaskById(mTaskId);
+                task.observe(this, new Observer<TaskEntry>() {
                     @Override
-                    public void run() {
-                        final TaskEntry task = mDb.taskDao().loadTaskById(mTaskId);
-                        // We will be able to simplify this once we learn more
-                        // about Android Architecture Components
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                populateUI(task);
-                            }
-                        });
+                    public void onChanged(@Nullable TaskEntry taskEntry) {
+                        task.removeObserver(this);
+                        populateUI(taskEntry);
+
                     }
                 });
             }

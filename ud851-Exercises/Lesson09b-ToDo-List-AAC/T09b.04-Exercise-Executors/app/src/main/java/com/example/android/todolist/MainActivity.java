@@ -27,6 +27,10 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 
 import com.example.android.todolist.database.AppDatabase;
+import com.example.android.todolist.database.TaskEntry;
+
+import java.util.List;
+import java.util.concurrent.Executor;
 
 import static android.support.v7.widget.DividerItemDecoration.VERTICAL;
 
@@ -105,13 +109,26 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.ItemC
     @Override
     protected void onResume() {
         super.onResume();
-        // TODO (5) Get the diskIO Executor from the instance of AppExecutors and
-        // call the diskIO execute method with a new Runnable and implement its run method
+        Executor diskIO = AppExecutors.getInstance().diskIO();
+        diskIO.execute(new Runnable() {
+            @Override
+            public void run() {
+                // background thread
+                final List<TaskEntry> allTasks = mDb.taskDao().loadAllTasks();
 
-        // TODO (6) Move the logic into the run method and
-        // extract the list of tasks to a final variable
-        // TODO (7) Wrap the setTask call in a call to runOnUiThread
-        mAdapter.setTasks(mDb.taskDao().loadAllTasks());
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        // UI thread
+                        mAdapter.setTasks(allTasks);
+
+
+                    }
+                });
+
+            }
+        });
     }
 
     @Override

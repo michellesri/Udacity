@@ -135,8 +135,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         return mTaskEntries.size();
     }
 
-    // TODO (2) Add a getTasks method that returns mTaskEntries
-
     /**
      * When data changes, this method updates the list of taskEntries
      * and notifies the adapter to use the new values on it
@@ -144,6 +142,10 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     public void setTasks(List<TaskEntry> taskEntries) {
         mTaskEntries = taskEntries;
         notifyDataSetChanged();
+    }
+
+    public List<TaskEntry> getTasks() {
+        return mTaskEntries;
     }
 
     public interface ItemClickListener {
