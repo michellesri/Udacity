@@ -43,7 +43,7 @@
 
     <!-- Text that describes weather condition -->
     <TextView
-        android:id="@+id/weather_description"
+        android:id="@+id/weather_description_tv"
         style="@style/TextAppearance.AppCompat.Large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
