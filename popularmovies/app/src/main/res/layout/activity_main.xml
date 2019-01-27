@@ -13,18 +13,18 @@
         <RadioButton android:id="@+id/radio_popular_movies"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="most popular"
+            android:text="@string/most_popular"
             android:onClick="onRadioButtonClicked"
             android:checked="true"/>
         <RadioButton android:id="@+id/radio_top_rated"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="highest rated"
+            android:text="@string/highest_rated"
             android:onClick="onRadioButtonClicked"/>
         <RadioButton android:id="@+id/radio_user_favorite_movies"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="user favorites"
+            android:text="@string/user_favorites"
             android:onClick="onRadioButtonClicked"/>
     </RadioGroup>
 

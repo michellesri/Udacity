@@ -6,4 +6,7 @@
     <string name="read_reviews">Read Reviews</string>
 
     <string name="num_reviews">Number of Reviews: %d</string>
+    <string name="most_popular">most popular</string>
+    <string name="highest_rated">highest rated</string>
+    <string name="user_favorites">user favorites</string>
 </resources>
