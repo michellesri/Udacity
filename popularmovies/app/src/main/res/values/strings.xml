@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">popular-movies</string>
+
+    <string name="play_trailer">Play Trailer</string>
+
+    <string name="read_reviews">Read Reviews</string>
+
+    <string name="num_reviews">Number of Reviews: %d</string>
 </resources>

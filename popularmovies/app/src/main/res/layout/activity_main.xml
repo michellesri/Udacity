@@ -21,6 +21,11 @@
             android:layout_height="wrap_content"
             android:text="highest rated"
             android:onClick="onRadioButtonClicked"/>
+        <RadioButton android:id="@+id/radio_user_favorite_movies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="user favorites"
+            android:onClick="onRadioButtonClicked"/>
     </RadioGroup>
 
     <android.support.v7.widget.RecyclerView
